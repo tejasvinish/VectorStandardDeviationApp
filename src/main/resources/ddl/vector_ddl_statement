@@ -1,0 +1,15 @@
+CREATE TABLE vector1(
+id INT NOT NULL AUTO_INCREMENT,
+vector_num INT,
+vector_id INT,
+PRIMARY KEY (id),
+CONSTRAINT vector_num1 CHECK (vector_num BETWEEN 1 AND 100));
+
+
+CREATE PROCEDURE insertVector1()
+BEGIN DECLARE v1 INT DEFAULT 2000; 
+WHILE v1 > 0
+DO INSERT vector1 VALUES (0,FLOOR( RAND() * (100-1) + 1),1); 
+SET v1=v1-1;
+END WHILE; 
+END
